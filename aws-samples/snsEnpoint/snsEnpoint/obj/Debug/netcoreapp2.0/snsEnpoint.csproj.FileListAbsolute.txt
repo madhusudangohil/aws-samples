@@ -1,0 +1,11 @@
+C:\Users\madhusudan.gohil\Source\Repos\snsEnpoint\snsEnpoint\bin\Debug\netcoreapp2.0\snsEnpoint.deps.json
+C:\Users\madhusudan.gohil\Source\Repos\snsEnpoint\snsEnpoint\bin\Debug\netcoreapp2.0\snsEnpoint.runtimeconfig.json
+C:\Users\madhusudan.gohil\Source\Repos\snsEnpoint\snsEnpoint\bin\Debug\netcoreapp2.0\snsEnpoint.runtimeconfig.dev.json
+C:\Users\madhusudan.gohil\Source\Repos\snsEnpoint\snsEnpoint\bin\Debug\netcoreapp2.0\snsEnpoint.dll
+C:\Users\madhusudan.gohil\Source\Repos\snsEnpoint\snsEnpoint\bin\Debug\netcoreapp2.0\snsEnpoint.pdb
+C:\Users\madhusudan.gohil\Source\Repos\snsEnpoint\snsEnpoint\obj\Debug\netcoreapp2.0\snsEnpoint.csproj.CoreCompileInputs.cache
+C:\Users\madhusudan.gohil\Source\Repos\snsEnpoint\snsEnpoint\obj\Debug\netcoreapp2.0\snsEnpoint.AssemblyInfoInputs.cache
+C:\Users\madhusudan.gohil\Source\Repos\snsEnpoint\snsEnpoint\obj\Debug\netcoreapp2.0\snsEnpoint.AssemblyInfo.cs
+C:\Users\madhusudan.gohil\Source\Repos\snsEnpoint\snsEnpoint\obj\Debug\netcoreapp2.0\snsEnpoint.dll
+C:\Users\madhusudan.gohil\Source\Repos\snsEnpoint\snsEnpoint\obj\Debug\netcoreapp2.0\snsEnpoint.pdb
+C:\Users\madhusudan.gohil\Source\Repos\snsEnpoint\snsEnpoint\obj\Debug\netcoreapp2.0\snsEnpoint.csprojAssemblyReference.cache

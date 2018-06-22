@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  snsenpoint:
+    image: ${DOCKER_REGISTRY}snsenpoint
+    build:
+      context: .
+      dockerfile: snsEnpoint/Dockerfile
+    ports:
+      - "8086:8086"
