@@ -10,6 +10,10 @@ using Amazon;
 using Amazon.Runtime.CredentialManagement;
 using Amazon.Runtime;
 using Amazon.SimpleNotificationService.Util;
+using System.Security.Cryptography.X509Certificates;
+using System.Diagnostics;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace snsEnpoint.Controllers
 {
@@ -50,6 +54,7 @@ namespace snsEnpoint.Controllers
 
 
                     String messagetype = Request.Headers["x-amz-sns-message-type"];
+                   
                     //If message doesn't have the message type header, don't process it.
                     if (messagetype == null)
                     {
@@ -61,12 +66,10 @@ namespace snsEnpoint.Controllers
                         message = reader.ReadToEnd();
                         var sm = Amazon.SimpleNotificationService.Util.Message.ParseMessage(message);
 
-                        if (sm.Signature.Equals("1"))
-                        {
-                            // Check the signature and throw an exception if the signature verification fails.
-                            if (isMessageSignatureValid(sm))
+                         // Check the signature and throw an exception if the signature verification fails.
+                            if (isMessageSignatureValid(sm.SigningCertURL, sm.Signature, message).Result)
                             {
-                                Console.WriteLine(">>Signature verification succeeded");
+                                Debug.WriteLine("Signature verification succeeded");
                                 if (sm.IsSubscriptionType)
                                 {
                                     var model = new Amazon.SimpleNotificationService.Model.ConfirmSubscriptionRequest(sm.TopicArn, sm.Token);
@@ -84,12 +87,7 @@ namespace snsEnpoint.Controllers
                             {
                                 Console.WriteLine(">>Signature verification failed");
                                 return StatusCode(400);
-                            }
-                        }
-                        else
-                        {
-                            return StatusCode(400);
-                        }
+                            }                        
 
                     }
 
@@ -106,18 +104,50 @@ namespace snsEnpoint.Controllers
         }
 
 
-        private static Boolean isMessageSignatureValid(Message msg)
+        private static async Task<Boolean> isMessageSignatureValid(string sigUrl, string signature, string body)
         {
             
-            Uri certUrl = new Uri(msg.SigningCertURL);                
+            Uri certUrl = new Uri(sigUrl);                
             if (!((certUrl.Port == 443 || certUrl.IsDefaultPort) && certUrl.Scheme == "https"))
             {
                 return false;
             }
+
+            using (var web = new System.Net.Http.HttpClient())
+            {
+                var certificate = await web.GetByteArrayAsync(certUrl);
+                var cert = new X509Certificate2(certificate);
+                Debug.WriteLine($"Cert is. {cert.FriendlyName}");
+                Debug.WriteLine("Checking certs expire date");
+                Debug.WriteLine($"Cert is valid from {cert.NotBefore} to {cert.NotAfter}");
+
+
+                var sha1 = System.Security.Cryptography.SHA1.Create();
+
+                UnicodeEncoding encoding = new UnicodeEncoding();
+
+                var data = sha1.ComputeHash(encoding.GetBytes(body));
+
+                using (RSA rsa = cert.GetRSAPublicKey())
+
+                {
+
+                    Debug.WriteLine($"RSA key size is {rsa.KeySize}");
+
+                    Debug.WriteLine($"Body data byte array size is {data.Count()}");
+
+
+                    if (rsa == null || rsa.VerifyHash(data, Encoding.ASCII.GetBytes(signature), HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1))
+
+                        return false;
+
+                }
+            }
             return true;    
             
             
-        }
+        }
+
 
         // PUT api/values/5
         [HttpPut("{id}")]
