@@ -1,0 +1,14 @@
+D:\aws-samples\s3dotnet\getv2\bin\Debug\netcoreapp2.1\getv2.deps.json
+D:\aws-samples\s3dotnet\getv2\bin\Debug\netcoreapp2.1\getv2.runtimeconfig.json
+D:\aws-samples\s3dotnet\getv2\bin\Debug\netcoreapp2.1\getv2.runtimeconfig.dev.json
+D:\aws-samples\s3dotnet\getv2\bin\Debug\netcoreapp2.1\getv2.dll
+D:\aws-samples\s3dotnet\getv2\obj\Debug\netcoreapp2.1\getv2.csproj.CoreCompileInputs.cache
+D:\aws-samples\s3dotnet\getv2\obj\Debug\netcoreapp2.1\getv2.RazorAssemblyInfo.cache
+D:\aws-samples\s3dotnet\getv2\obj\Debug\netcoreapp2.1\getv2.RazorAssemblyInfo.cs
+D:\aws-samples\s3dotnet\getv2\obj\Debug\netcoreapp2.1\getv2.AssemblyInfoInputs.cache
+D:\aws-samples\s3dotnet\getv2\obj\Debug\netcoreapp2.1\getv2.AssemblyInfo.cs
+D:\aws-samples\s3dotnet\getv2\obj\Debug\netcoreapp2.1\getv2.RazorTargetAssemblyInfo.cache
+D:\aws-samples\s3dotnet\getv2\bin\Debug\netcoreapp2.1\getv2.pdb
+D:\aws-samples\s3dotnet\getv2\obj\Debug\netcoreapp2.1\getv2.dll
+D:\aws-samples\s3dotnet\getv2\obj\Debug\netcoreapp2.1\getv2.pdb
+D:\aws-samples\s3dotnet\getv2\obj\Debug\netcoreapp2.1\getv2.csprojAssemblyReference.cache

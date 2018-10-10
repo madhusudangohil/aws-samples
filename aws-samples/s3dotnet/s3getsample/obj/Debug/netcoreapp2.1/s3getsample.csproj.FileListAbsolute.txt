@@ -1,0 +1,15 @@
+D:\aws-samples\s3dotnet\s3getsample\bin\Debug\netcoreapp2.1\s3getsample.deps.json
+D:\aws-samples\s3dotnet\s3getsample\bin\Debug\netcoreapp2.1\s3getsample.runtimeconfig.json
+D:\aws-samples\s3dotnet\s3getsample\bin\Debug\netcoreapp2.1\s3getsample.runtimeconfig.dev.json
+D:\aws-samples\s3dotnet\s3getsample\bin\Debug\netcoreapp2.1\s3getsample.dll
+D:\aws-samples\s3dotnet\s3getsample\bin\Debug\netcoreapp2.1\s3getsample.pdb
+D:\aws-samples\s3dotnet\s3getsample\obj\Debug\netcoreapp2.1\s3getsample.csproj.CoreCompileInputs.cache
+D:\aws-samples\s3dotnet\s3getsample\obj\Debug\netcoreapp2.1\s3getsample.RazorAssemblyInfo.cache
+D:\aws-samples\s3dotnet\s3getsample\obj\Debug\netcoreapp2.1\s3getsample.RazorAssemblyInfo.cs
+D:\aws-samples\s3dotnet\s3getsample\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+D:\aws-samples\s3dotnet\s3getsample\obj\Debug\netcoreapp2.1\s3getsample.AssemblyInfoInputs.cache
+D:\aws-samples\s3dotnet\s3getsample\obj\Debug\netcoreapp2.1\s3getsample.AssemblyInfo.cs
+D:\aws-samples\s3dotnet\s3getsample\obj\Debug\netcoreapp2.1\s3getsample.RazorTargetAssemblyInfo.cache
+D:\aws-samples\s3dotnet\s3getsample\obj\Debug\netcoreapp2.1\s3getsample.dll
+D:\aws-samples\s3dotnet\s3getsample\obj\Debug\netcoreapp2.1\s3getsample.pdb
+D:\aws-samples\s3dotnet\s3getsample\obj\Debug\netcoreapp2.1\s3getsample.csprojAssemblyReference.cache
