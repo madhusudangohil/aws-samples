@@ -52,9 +52,20 @@ namespace getv2.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public async Task<string> Get(int id)
         {
-            return "value";
+            IAmazonS3 client = new AmazonS3Client(RegionEndpoint.USWest2);
+
+            GetObjectRequest request = new GetObjectRequest();
+            request.BucketName = "ch2-sms-startchat-authentication";
+            request.Key = "Token.txt";
+            var response = await client.GetObjectAsync(request);
+            string output = string.Empty;
+            using (var reader = new StreamReader(response.ResponseStream))
+            {
+                output = await reader.ReadToEndAsync();
+            }
+            return output;
         }
 
         // POST api/values
