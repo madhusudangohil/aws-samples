@@ -1,0 +1,176 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Hello World App
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths 
+basePath: /
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /team:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: team
+    get:
+      operationId: getAll
+      description: get the teams list
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/GetTeamsListResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      operationId: save
+      description: add a new team to the list
+      parameters:
+        - name: captain
+          description: Team property
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Team"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /team/{id}:
+    x-swagger-router-controller: team
+    get:
+      operationId: getOne
+      description: get the teams list
+      parameters:
+        - name: id
+          description: team id
+          type: string
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/GetTeamResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    put:
+      operationId: update
+      description: update team
+      parameters:
+        - name: id
+          description: team id
+          type: string
+          in: path
+          required: true
+        - name: captain
+          description: Team property
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Team"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+       operationId: deleteTeam
+       description: delete a team
+       parameters:
+          - name: id
+            description: team id
+            type: string
+            in: path
+            required: true
+       responses:
+        "200": 
+          description: Success
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  GetTeamsListResponse:
+    required:
+      - teams
+    properties:
+      teams:
+        type: array
+        items:
+          type: object
+          properties:
+             id:
+               type: string
+             captain:
+               type: string
+             country:
+               type: string
+  GetTeamResponse:
+      type: object
+      properties:
+         id:
+           type: string
+         captain:
+           type: string
+         country:
+           type: string
+  Team:
+    type: object
+    properties:
+      captain:
+        type: string
+      country:
+        type: string
+    required:
+      - captain
+      - country
+  GeneralResponse:
+    type: object
+    properties:
+       success:
+         type: number
+         description: returns 1 if successfull
+       description:
+         type: string
+         description: a short comment
+    required:
+      - success
+      - description
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
