@@ -13,7 +13,7 @@
     <PackageReference Include="awssdk.core" Version="3.3.24.1" />
     <PackageReference Include="awssdk.securitytoken" Version="3.3.4.5" />
     <PackageReference Include="AWSSDK.SimpleNotificationService" Version="3.3.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
   </ItemGroup>
 
   <ItemGroup>
