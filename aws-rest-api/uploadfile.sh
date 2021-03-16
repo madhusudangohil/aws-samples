@@ -18,5 +18,5 @@ curl -v -X PUT -T "${fileName}" \
 https://${s3Bucket}.s3.amazonaws.com/${fileName}
 
 
-#usage
+#how to call
 # ./uploadfile.sh samplefile.txt mysample-bucket XXXXXXXXXXXXXLD UEPUEOEUpjdpieeerkjljuuidfs
